@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="theme-color" content="#111318">
+
   <title>Fredrik Engberg | Connect</title>
 
   <style>
@@ -26,32 +27,95 @@
       display: grid;
       place-items: center;
       padding: 24px;
+
       background:
         radial-gradient(circle at top, #1b2230 0%, transparent 35%),
         linear-gradient(180deg, #0d1015 0%, var(--bg) 100%);
+
       color: var(--text);
-      font-family: -apple-system, BlinkMacSystemFont,
-        "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
     }
 
     .card {
       width: min(100%, 430px);
-      background: var(--panel);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.03),
+          rgba(255,255,255,0.01)
+        ),
+        var(--panel);
+
       border: 1px solid var(--line);
       border-radius: 28px;
+
       padding: 34px 26px 28px;
-      box-shadow: 0 24px 70px rgba(0,0,0,.35);
+
+      box-shadow:
+        0 24px 70px rgba(0,0,0,0.35);
+
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+
+      width: 160px;
+      height: 1px;
+
+      background: var(--line);
+
+      top: 42px;
+      right: -45px;
+
+      transform: rotate(-35deg);
+    }
+
+    .card::after {
+      content: "";
+      position: absolute;
+
+      width: 150px;
+      height: 1px;
+
+      background: var(--line);
+
+      bottom: 55px;
+      left: -45px;
+
+      transform: rotate(-35deg);
     }
 
     .logo {
       width: 74px;
       height: 74px;
+
       margin: 0 auto 20px;
+
       display: grid;
       place-items: center;
+
       border: 1px solid #3a4352;
       border-radius: 22px;
-      background: linear-gradient(145deg, #202631, #12161d);
+
+      background:
+        linear-gradient(
+          145deg,
+          #202631,
+          #12161d
+        );
+
       font-weight: 700;
       font-size: 27px;
       letter-spacing: -2px;
@@ -59,54 +123,89 @@
 
     h1 {
       margin: 0;
+
       text-align: center;
+
       font-size: 36px;
       letter-spacing: -1.3px;
     }
 
     .role {
       margin: 9px 0 28px;
+
       text-align: center;
+
       color: var(--muted);
+
       font-size: 16px;
     }
 
     .buttons {
       display: grid;
+
       gap: 12px;
     }
 
     .button {
       width: 100%;
       min-height: 56px;
+
       border-radius: 16px;
+
       border: 1px solid #303948;
+
       background: var(--panel-2);
+
       color: var(--text);
+
       text-decoration: none;
+
       display: flex;
       align-items: center;
       justify-content: center;
+
       font-size: 16px;
       font-weight: 650;
+
+      transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+
+      border-color: #4a5668;
+
+      background: #202733;
     }
 
     .primary {
       background: #eef1f5;
+
       color: #111318;
+
       border-color: #eef1f5;
     }
 
-    .disabled {
-      opacity: .5;
+    .primary:hover {
+      background: #ffffff;
+
+      border-color: #ffffff;
     }
 
     .footer {
       margin-top: 24px;
+
       text-align: center;
+
       color: #737e8e;
+
       font-size: 12px;
-      letter-spacing: .08em;
+
+      letter-spacing: 0.08em;
+
       text-transform: uppercase;
     }
   </style>
@@ -116,32 +215,58 @@
 
   <main class="card">
 
-    <div class="logo">FE</div>
+    <div class="logo">
+      FE
+    </div>
 
-    <h1>Fredrik Engberg</h1>
-    <p class="role">Embedded Systems & IoT</p>
+    <h1>
+      Fredrik Engberg
+    </h1>
+
+    <p class="role">
+      Embedded Systems & IoT
+    </p>
 
     <div class="buttons">
 
-      <div class="button primary disabled">
+      <a
+        class="button primary"
+        href="contact.vcf"
+      >
         Spara kontakt
-      </div>
+      </a>
 
-      <a class="button"
-         href="https://www.linkedin.com/in/fredrik-engberg-5380a014a/"
-         target="_blank">
+      <a
+        class="button"
+        href="https://www.linkedin.com/in/fredrik-engberg-5380a014a/"
+        target="_blank"
+        rel="noopener"
+      >
         LinkedIn
       </a>
 
-      <a class="button"
-         href="https://github.com/FredrikEngberg"
-         target="_blank">
+      <a
+        class="button"
+        href="https://github.com/FredrikEngberg"
+        target="_blank"
+        rel="noopener"
+      >
         GitHub
       </a>
 
-      <div class="button disabled">
+      <a
+        class="button"
+        href="mailto:fredrik.engberg@hotmail.com"
+      >
         E-post
-      </div>
+      </a>
+
+      <a
+        class="button"
+        href="tel:+46703666679"
+      >
+        Ring
+      </a>
 
     </div>
 
