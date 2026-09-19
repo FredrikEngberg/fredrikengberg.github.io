@@ -7,6 +7,11 @@
 
   <title>Fredrik Engberg | Connect</title>
 
+  <meta
+    name="description"
+    content="Fredrik Engberg – Embedded Systems & IoT. Kontakt, GitHub, LinkedIn och portfolio."
+  >
+
   <style>
     :root {
       --bg: #0b0d11;
@@ -142,7 +147,6 @@
 
     .buttons {
       display: grid;
-
       gap: 12px;
     }
 
@@ -195,6 +199,23 @@
       border-color: #ffffff;
     }
 
+    .portfolio {
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.05),
+          rgba(255,255,255,0.01)
+        ),
+        #1d2430;
+
+      border-color: #3a4658;
+    }
+
+    .portfolio:hover {
+      background: #252e3c;
+      border-color: #56657a;
+    }
+
     .footer {
       margin-top: 24px;
 
@@ -207,6 +228,25 @@
       letter-spacing: 0.08em;
 
       text-transform: uppercase;
+    }
+
+    @media (max-width: 480px) {
+      body {
+        padding: 16px;
+      }
+
+      .card {
+        border-radius: 24px;
+        padding: 30px 20px 24px;
+      }
+
+      h1 {
+        font-size: 32px;
+      }
+
+      .button {
+        min-height: 54px;
+      }
     }
   </style>
 </head>
@@ -252,6 +292,13 @@
         rel="noopener"
       >
         GitHub
+      </a>
+
+      <a
+        class="button portfolio"
+        href="portfolio.html"
+      >
+        Projekt & portfolio
       </a>
 
       <a
