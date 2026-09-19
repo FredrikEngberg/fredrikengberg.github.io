@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+FN:Fredrik Engberg
+N:Engberg;Fredrik;;;
+TITLE:Embedded Systems & IoT
+TEL;TYPE=CELL:+46703666679
+EMAIL;TYPE=INTERNET:fredrik.engberg@hotmail.com
+URL:https://fredrikengberg.github.io
+URL:https://www.linkedin.com/in/fredrik-engberg-5380a014a/
+URL:https://github.com/FredrikEngberg
+END:VCARD
