@@ -1,1 +1,758 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#111318">
 
+  <title>Fredrik Engberg | Portfolio</title>
+
+  <meta
+    name="description"
+    content="Fredrik Engberg – Embedded Systems & IoT. Portfolio med projekt inom IoT, ESP32, Java, C/C++, automation och inbyggda system."
+  >
+
+  <style>
+    :root {
+      --bg: #0b0d11;
+      --panel: #141821;
+      --panel-2: #1a202a;
+      --text: #f4f6f8;
+      --muted: #9aa4b2;
+      --line: #2a3240;
+      --accent: #eef1f5;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      background:
+        radial-gradient(circle at top, #1b2230 0%, transparent 30%),
+        linear-gradient(180deg, #0d1015 0%, var(--bg) 100%);
+
+      color: var(--text);
+
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(100% - 32px, 1050px);
+      margin: 0 auto;
+    }
+
+    header {
+      padding: 28px 0;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .brand {
+      font-weight: 750;
+      text-decoration: none;
+      font-size: 18px;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 14px;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+    }
+
+    .hero {
+      padding: 85px 0 70px;
+      max-width: 800px;
+    }
+
+    .eyebrow {
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(44px, 8vw, 76px);
+      line-height: 1;
+      letter-spacing: -3px;
+    }
+
+    .hero-role {
+      margin: 22px 0 0;
+      color: var(--muted);
+      font-size: clamp(20px, 3vw, 28px);
+      font-weight: 500;
+    }
+
+    .hero-text {
+      margin: 25px 0 0;
+      max-width: 700px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 32px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+
+      min-height: 48px;
+      padding: 0 20px;
+
+      border-radius: 14px;
+      border: 1px solid #303948;
+
+      background: var(--panel-2);
+      color: var(--text);
+
+      text-decoration: none;
+      font-weight: 650;
+
+      transition:
+        transform 0.15s ease,
+        border-color 0.15s ease,
+        background 0.15s ease;
+    }
+
+    .button:hover {
+      transform: translateY(-1px);
+      border-color: #4a5668;
+      background: #202733;
+    }
+
+    .button.primary {
+      background: var(--accent);
+      color: #111318;
+      border-color: var(--accent);
+    }
+
+    section {
+      padding: 65px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .section-header {
+      margin-bottom: 32px;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: 32px;
+      letter-spacing: -1px;
+    }
+
+    .section-description {
+      color: var(--muted);
+      margin: 8px 0 0;
+    }
+
+    .about {
+      max-width: 780px;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .skills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .skill {
+      padding: 10px 14px;
+      border: 1px solid var(--line);
+      background: var(--panel);
+      border-radius: 12px;
+      color: #dce1e8;
+      font-size: 14px;
+    }
+
+    .projects {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project {
+      position: relative;
+      overflow: hidden;
+
+      padding: 26px;
+
+      border-radius: 22px;
+      border: 1px solid var(--line);
+
+      background:
+        linear-gradient(
+          145deg,
+          rgba(255,255,255,0.025),
+          rgba(255,255,255,0)
+        ),
+        var(--panel);
+
+      min-height: 260px;
+
+      display: flex;
+      flex-direction: column;
+    }
+
+    .project::before {
+      content: "";
+      position: absolute;
+
+      width: 130px;
+      height: 1px;
+
+      background: var(--line);
+
+      top: 35px;
+      right: -40px;
+
+      transform: rotate(-35deg);
+    }
+
+    .project-icon {
+      font-size: 29px;
+      margin-bottom: 18px;
+    }
+
+    .project h3 {
+      margin: 0;
+      font-size: 21px;
+      letter-spacing: -0.4px;
+    }
+
+    .project p {
+      margin: 12px 0 20px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .tags {
+      display: flex;
+      gap: 7px;
+      flex-wrap: wrap;
+      margin-top: auto;
+    }
+
+    .tag {
+      font-size: 12px;
+      color: #b9c2cf;
+
+      border: 1px solid #303948;
+      border-radius: 8px;
+
+      padding: 5px 8px;
+    }
+
+    .status {
+      margin-top: 18px;
+      color: #7f8a9a;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .contact-box {
+      padding: 30px;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: var(--panel);
+    }
+
+    .contact-box p {
+      color: var(--muted);
+      margin-top: 0;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    footer {
+      padding: 35px 0 50px;
+      color: #737e8e;
+      font-size: 13px;
+    }
+
+    @media (max-width: 720px) {
+      .container {
+        width: min(100% - 28px, 1050px);
+      }
+
+      .hero {
+        padding: 65px 0 55px;
+      }
+
+      h1 {
+        letter-spacing: -2px;
+      }
+
+      .projects {
+        grid-template-columns: 1fr;
+      }
+
+      nav {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .nav-links {
+        gap: 14px;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="container">
+
+      <nav>
+
+        <a class="brand" href="index.html">
+          Fredrik Engberg
+        </a>
+
+        <div class="nav-links">
+          <a href="#about">Om mig</a>
+          <a href="#skills">Teknik</a>
+          <a href="#projects">Projekt</a>
+          <a href="#contact">Kontakt</a>
+        </div>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <main>
+
+    <div class="container">
+
+      <section class="hero">
+
+        <div class="eyebrow">
+          Portfolio
+        </div>
+
+        <h1>
+          Fredrik Engberg
+        </h1>
+
+        <p class="hero-role">
+          Embedded Systems & IoT
+        </p>
+
+        <p class="hero-text">
+          Jag utvecklar mina kunskaper inom mjukvaruutveckling,
+          inbyggda system och Internet of Things och bygger praktiska
+          projekt där programmering, elektronik och uppkopplade
+          enheter möts.
+        </p>
+
+        <div class="hero-buttons">
+
+          <a
+            class="button primary"
+            href="#projects"
+          >
+            Se projekt
+          </a>
+
+          <a
+            class="button"
+            href="index.html"
+          >
+            Kontaktkort
+          </a>
+
+        </div>
+
+      </section>
+
+
+      <section id="about">
+
+        <div class="section-header">
+          <h2>Om mig</h2>
+        </div>
+
+        <div class="about">
+
+          <p>
+            Jag studerar mjukvaruutveckling med inriktning mot
+            inbyggda system och IoT.
+          </p>
+
+          <p>
+            Mitt fokus ligger på att förstå hela kedjan från kod och
+            mikrokontroller till sensorer, kommunikation, automation
+            och systemintegration.
+          </p>
+
+          <p>
+            Jag dokumenterar mina projekt på GitHub både för att följa
+            min egen utveckling och för att visa hur jag arbetar med
+            problemlösning och tekniska lösningar.
+          </p>
+
+        </div>
+
+      </section>
+
+
+      <section id="skills">
+
+        <div class="section-header">
+
+          <h2>Teknik</h2>
+
+          <p class="section-description">
+            Tekniker och områden jag arbetar med och utvecklar mina
+            kunskaper inom.
+          </p>
+
+        </div>
+
+        <div class="skills">
+
+          <span class="skill">Java</span>
+          <span class="skill">C</span>
+          <span class="skill">C++</span>
+          <span class="skill">ESP32</span>
+          <span class="skill">Embedded Systems</span>
+          <span class="skill">IoT</span>
+          <span class="skill">Linux</span>
+          <span class="skill">MQTT</span>
+          <span class="skill">Git</span>
+          <span class="skill">GitHub</span>
+          <span class="skill">Home Assistant</span>
+          <span class="skill">Sensors</span>
+          <span class="skill">APIs</span>
+          <span class="skill">Automation</span>
+
+        </div>
+
+      </section>
+
+
+      <section id="projects">
+
+        <div class="section-header">
+
+          <h2>Utvalda projekt</h2>
+
+          <p class="section-description">
+            Praktiska projekt inom IoT, embedded och mjukvaruutveckling.
+          </p>
+
+        </div>
+
+
+        <div class="projects">
+
+
+          <article class="project">
+
+            <div class="project-icon">
+              📷
+            </div>
+
+            <h3>
+              License Plate Parking System
+            </h3>
+
+            <p>
+              Ett system som ska läsa registreringsskyltar,
+              identifiera om ett fordon kör in eller ut och automatiskt
+              uppdatera parkeringsinformation.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Computer Vision</span>
+              <span class="tag">Automation</span>
+              <span class="tag">API</span>
+              <span class="tag">System Integration</span>
+            </div>
+
+            <div class="status">
+              Under utveckling
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-icon">
+              🏠
+            </div>
+
+            <h3>
+              Smart Summer House
+            </h3>
+
+            <p>
+              IoT-system för övervakning och styrning av en sommarstuga
+              med sensorer, ESP32, MQTT och Home Assistant.
+            </p>
+
+            <div class="tags">
+              <span class="tag">ESP32</span>
+              <span class="tag">MQTT</span>
+              <span class="tag">Sensors</span>
+              <span class="tag">Home Assistant</span>
+            </div>
+
+            <div class="status">
+              Under utveckling
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-icon">
+              🔌
+            </div>
+
+            <h3>
+              ESP32 Projects
+            </h3>
+
+            <p>
+              Praktiska övningar och prototyper med ESP32-S3 för att
+              utveckla kunskaper inom GPIO, elektronik, sensorer och
+              embedded-programmering.
+            </p>
+
+            <div class="tags">
+              <span class="tag">ESP32-S3</span>
+              <span class="tag">GPIO</span>
+              <span class="tag">Electronics</span>
+              <span class="tag">Embedded</span>
+            </div>
+
+            <div class="status">
+              Pågående
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-icon">
+              🔋
+            </div>
+
+            <h3>
+              Battery Tester
+            </h3>
+
+            <p>
+              En kompakt batteritestare med display som ska uppskatta
+              återstående batterinivå för flera vanliga batterityper.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Electronics</span>
+              <span class="tag">Embedded</span>
+              <span class="tag">Sensors</span>
+            </div>
+
+            <div class="status">
+              Planering / prototyp
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-icon">
+              🌬️
+            </div>
+
+            <h3>
+              Portable USB-C Fan
+            </h3>
+
+            <p>
+              Projekt för att bygga en kompakt och kraftfull handhållen
+              fläkt med justerbar hastighet och portabel strömförsörjning.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Electronics</span>
+              <span class="tag">USB-C</span>
+              <span class="tag">Power</span>
+              <span class="tag">Prototype</span>
+            </div>
+
+            <div class="status">
+              Planering
+            </div>
+
+          </article>
+
+
+          <article class="project">
+
+            <div class="project-icon">
+              ☕
+            </div>
+
+            <h3>
+              Java Projects
+            </h3>
+
+            <p>
+              Programmeringsövningar och mindre projekt för att utveckla
+              förståelse för Java, objektorienterad programmering,
+              Git och versionshantering.
+            </p>
+
+            <div class="tags">
+              <span class="tag">Java</span>
+              <span class="tag">OOP</span>
+              <span class="tag">Git</span>
+              <span class="tag">GitHub</span>
+            </div>
+
+            <div class="status">
+              Pågående
+            </div>
+
+          </article>
+
+
+        </div>
+
+      </section>
+
+
+      <section id="contact">
+
+        <div class="section-header">
+          <h2>Kontakt</h2>
+        </div>
+
+        <div class="contact-box">
+
+          <p>
+            Vill du komma i kontakt med mig eller se mer av mina projekt?
+          </p>
+
+          <div class="contact-links">
+
+            <a
+              class="button primary"
+              href="contact.vcf"
+            >
+              Spara kontakt
+            </a>
+
+            <a
+              class="button"
+              href="https://github.com/FredrikEngberg"
+              target="_blank"
+              rel="noopener"
+            >
+              GitHub
+            </a>
+
+            <a
+              class="button"
+              href="https://www.linkedin.com/in/fredrik-engberg-5380a014a/"
+              target="_blank"
+              rel="noopener"
+            >
+              LinkedIn
+            </a>
+
+            <a
+              class="button"
+              href="mailto:fredrik.engberg@hotmail.com"
+            >
+              E-post
+            </a>
+
+          </div>
+
+        </div>
+
+      </section>
+
+    </div>
+
+  </main>
+
+
+  <footer>
+
+    <div class="container">
+      Fredrik Engberg · Embedded Systems & IoT
+    </div>
+
+  </footer>
+
+</body>
+</html>
