@@ -1,14 +1,47 @@
-# fredrikengberg.github.io
-
 # Fredrik Engberg – Connect
 
 En enkel digital kontaktsida byggd med HTML/CSS och publicerad kostnadsfritt via GitHub Pages.
 
-Sidan är framtagen för nätverkande, branschdagar och andra tillfällen där kontaktuppgifter snabbt ska kunna delas via QR-kod.
+Sidan är framtagen för nätverkande, branschdagar, mässor och andra tillfällen där kontaktuppgifter snabbt ska kunna delas via QR-kod.
 
 ## Live-sida
 
+**Connect:**  
 https://fredrikengberg.github.io
+
+**Projekt & portfolio:**  
+https://fredrikengberg.github.io/portfolio.html
+
+---
+
+## Så fungerar det
+
+QR-koden öppnar Connect-sidan direkt i mobilen.
+
+Där kan besökaren:
+
+- spara kontaktuppgifterna
+- öppna LinkedIn
+- öppna GitHub
+- gå vidare till projekt och portfolio
+- skicka e-post
+- ringa
+
+QR-koden kan även sparas i Apple Wallet för snabb åtkomst vid exempelvis branschdagar och nätverksträffar.
+
+### Connect-sidan
+
+<p align="center">
+  <img src="assets/connect-preview.jpeg" width="330" alt="Fredrik Engberg Connect-sida">
+</p>
+
+### Apple Wallet
+
+<p align="center">
+  <img src="assets/wallet-preview.jpeg" width="330" alt="Fredrik Engberg QR-kod i Apple Wallet">
+</p>
+
+---
 
 ## Funktioner
 
@@ -16,11 +49,16 @@ https://fredrikengberg.github.io
 - Spara kontakt som vCard (`.vcf`)
 - LinkedIn
 - GitHub
+- Projekt & portfolio
 - E-post
 - Telefonsamtal
 - Mobilanpassad design
 - QR-kod som leder direkt till kontaktsidan
-- Kan användas från Apple Wallet för snabb åtkomst
+- Apple Wallet för snabb åtkomst
+- GitHub Pages-hosting
+- Responsiv design
+
+---
 
 ## Filstruktur
 
@@ -28,19 +66,40 @@ https://fredrikengberg.github.io
 fredrikengberg.github.io/
 │
 ├── index.html
+├── portfolio.html
 ├── contact.vcf
-└── README.md
+├── README.md
+│
+└── assets/
+    ├── connect-preview.jpeg
+    └── wallet-preview.jpeg
 ```
 
 ### `index.html`
 
-Innehåller själva kontaktsidan och länkar till:
+Innehåller själva Connect-sidan och länkar till:
 
 - vCard
 - LinkedIn
 - GitHub
+- Projekt & portfolio
 - e-post
 - telefon
+
+### `portfolio.html`
+
+Innehåller projekt- och portfoliosidan.
+
+Sidan kan successivt byggas ut med projekt inom exempelvis:
+
+- Embedded Systems
+- IoT
+- C/C++
+- Java
+- ESP32
+- automation
+- Home Assistant
+- egna teknikprojekt
 
 ### `contact.vcf`
 
@@ -80,7 +139,9 @@ Exempel:
 fredrikengberg.github.io
 ```
 
-Repositoryt måste ha samma namn som ditt GitHub-användarnamn följt av `.github.io`.
+Repositoryt ska ha samma namn som ditt GitHub-användarnamn följt av `.github.io`.
+
+---
 
 ## 2. Skapa `index.html`
 
@@ -107,6 +168,10 @@ Exempel på länkar:
   GitHub
 </a>
 
+<a href="portfolio.html">
+  Projekt & portfolio
+</a>
+
 <a href="mailto:namn@example.com">
   E-post
 </a>
@@ -115,6 +180,8 @@ Exempel på länkar:
   Ring
 </a>
 ```
+
+---
 
 ## 3. Skapa vCard
 
@@ -133,6 +200,8 @@ href="contact.vcf"
 ```
 
 När filen öppnas på en kompatibel telefon kan användaren lägga till kontaktuppgifterna direkt i kontaktboken.
+
+---
 
 ## 4. Aktivera GitHub Pages
 
@@ -159,6 +228,8 @@ Sidan blir därefter tillgänglig på:
 https://dittgithubnamn.github.io
 ```
 
+---
+
 ## 5. Testa sidan
 
 Testa framför allt från mobiltelefon.
@@ -168,9 +239,12 @@ Kontrollera att:
 - Spara kontakt fungerar
 - LinkedIn öppnas korrekt
 - GitHub öppnas korrekt
+- Projekt & portfolio öppnas korrekt
 - E-post öppnar standardappen för e-post
 - Ring öppnar telefonfunktionen
 - sidan fungerar på både liten och stor skärm
+
+---
 
 ## 6. Skapa QR-kod
 
@@ -184,11 +258,28 @@ Lägg inte telefonnummer, e-post och andra kontaktuppgifter direkt i QR-koden.
 
 Fördelen är att innehållet på webbsidan kan ändras senare utan att QR-koden behöver bytas.
 
+Flödet blir:
+
+```text
+QR-kod
+   ↓
+Connect-sida
+   ↓
+Spara kontakt
+LinkedIn
+GitHub
+Portfolio
+E-post
+Telefon
+```
+
+---
+
 ## 7. Lägg QR-koden i Apple Wallet
 
-QR-koden kan läggas till i Apple Wallet eller användas via annan snabbgenväg på telefonen.
+QR-koden kan läggas till i Apple Wallet för snabb åtkomst från telefonen.
 
-På så sätt kan kontaktsidan snabbt visas vid exempelvis:
+Det gör lösningen praktisk vid exempelvis:
 
 - branschdagar
 - mässor
@@ -196,13 +287,27 @@ På så sätt kan kontaktsidan snabbt visas vid exempelvis:
 - LIA-kontakter
 - nätverksträffar
 
-Den andra personen skannar QR-koden och får direkt tillgång till kontaktsidan.
+Den andra personen skannar QR-koden och får direkt tillgång till Connect-sidan.
+
+```text
+Apple Wallet
+     ↓
+QR-kod
+     ↓
+Connect-sida
+     ↓
+Kontakt & professionella profiler
+```
+
+---
 
 ## Valfritt – profilbild
 
-En profilbild kan läggas på kontaktsidan och även inkluderas i vCard-filen.
+En profilbild kan läggas på Connect-sidan och även inkluderas i vCard-filen.
 
-Det gör det enklare för en ny kontakt att komma ihåg vem personen var efter exempelvis en branschdag.
+Det gör det enklare för en ny kontakt att komma ihåg vem personen var efter exempelvis en branschdag eller nätverksträff.
+
+---
 
 ## Valfritt – egen domän
 
@@ -212,11 +317,19 @@ GitHub Pages kan senare kopplas till en egen domän, exempelvis:
 namn.se
 ```
 
-QR-kod och kontaktsida kan då använda en mer personlig webbadress.
+QR-koden kan då exempelvis leda till:
+
+```text
+https://namn.se
+```
+
+GitHub Pages kan fortfarande användas som hosting i bakgrunden.
+
+---
 
 ## Säkerhet och integritet
 
-Tänk på att GitHub Pages och filer i ett publikt repository är offentliga.
+GitHub Pages och filer i ett publikt repository är offentliga.
 
 Information som placeras i exempelvis:
 
@@ -226,7 +339,7 @@ contact.vcf
 
 kan därför läsas av andra.
 
-Publicera endast telefonnummer, e-postadress och annan information som du är bekväm med att göra offentlig.
+Publicera endast telefonnummer, e-postadress och annan information som är avsedd att vara offentlig.
 
 ---
 
@@ -234,12 +347,25 @@ Publicera endast telefonnummer, e-postadress och annan information som du är be
 
 - HTML5
 - CSS3
+- Responsive Web Design
 - vCard 3.0
+- GitHub
 - GitHub Pages
 - QR-kod
+- Apple Wallet
+
+---
 
 ## Syfte
 
 Projektet skapades som en enkel och professionell lösning för att snabbt kunna dela kontaktuppgifter och professionella profiler vid nätverkande.
 
-**Build • Learn • Connect**
+Lösningen är byggd så att innehållet kan utvecklas och ändras över tid utan att själva QR-koden behöver bytas.
+
+Det gör samma QR-kod användbar även när nya projekt, kontaktuppgifter eller funktioner läggs till.
+
+---
+
+<p align="center">
+  <strong>BUILD • LEARN • CONNECT</strong>
+</p>
